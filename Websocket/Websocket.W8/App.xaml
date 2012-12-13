@@ -1,0 +1,42 @@
+﻿<Application
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Websocket.W8" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="Websocket.W8.App"
+    >
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- 
+                    Styles définissant l'apparence globale de la plateforme
+                    Requis par les modèles de projets et les modèles d'éléments Visual Studio
+                 -->
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        	<DataTemplate x:Key="UserTemplate">
+        		<Grid d:DesignWidth="252" d:DesignHeight="34">
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="45"/>
+        				<ColumnDefinition/>
+        			</Grid.ColumnDefinitions>
+        			<TextBlock TextWrapping="Wrap" Text="{Binding Name}" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        			<Image Source="{Binding Image}"/>
+        		</Grid>
+        	</DataTemplate>
+        	<DataTemplate x:Key="MessageTemplate">
+        		<Grid d:DesignWidth="458" d:DesignHeight="69" Background="#FF724A4A" Height="Auto">
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="72"/>
+        				<ColumnDefinition/>
+        			</Grid.ColumnDefinitions>
+        			<TextBlock TextWrapping="Wrap" Text="{Binding Message}" Grid.Column="1" Margin="10" FontFamily="Segoe UI" FontSize="14.667"/>
+        			<Image Margin="7,7,7,20" Source="{Binding User.Image}"/>
+        			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding User.Name}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="7,0,0,0" FontFamily="Segoe UI" FontSize="12"/>
+        		</Grid>
+        	</DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
